@@ -1,94 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5HZVSKLM');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FocusHive AI | Slice Task Paralysis ⚡</title>
+    <title>FocusHive AI | Crush ADHD Paralysis</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fdfdff; }
-        .ai-card { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(15px); }
-        .step-entry { animation: fadeInUp 0.4s ease-out forwards; opacity: 0; }
-        @keyframes fadeInUp { from { transform: translateY(10px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        .loader { border: 3px solid #f3f3f3; border-top: 3px solid #4f46e5; border-radius: 50%; width: 22px; height: 22px; animation: spin 1s linear infinite; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f8fafc; color: #0f172a; }
+        .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border: 1px solid #e2e8f0; }
+        .btn-grad { background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .btn-grad:hover { transform: translateY(-2px); shadow: 0 20px 25px -5px rgba(79, 70, 229, 0.4); }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-slide { animation: slideUp 0.5s ease-out forwards; }
     </style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-6 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-indigo-50 via-white to-slate-100">
-
-    <div class="max-w-xl w-full ai-card p-10 rounded-[2.5rem] shadow-2xl border border-white">
+<body class="min-h-screen flex flex-col items-center p-6">
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5HZVSKLM"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <div class="w-full max-w-md mt-12">
         <div class="text-center mb-10">
             <div class="inline-flex items-center justify-center w-16 h-16 bg-indigo-600 rounded-3xl shadow-xl shadow-indigo-200 mb-6">
-                <span class="text-3xl text-white">⚡</span>
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
             </div>
-            <h1 class="text-4xl font-extrabold text-slate-900 tracking-tight mb-2">FocusHive AI</h1>
-            <p class="text-slate-500 font-medium italic">Turning ADHD paralysis into easy wins.</p>
+            <h1 class="text-4xl font-extrabold tracking-tight text-slate-900">FocusHive <span class="text-indigo-600">AI</span></h1>
+            <p class="text-slate-500 mt-3 font-medium text-lg">Slice your giant tasks into 3 tiny, doable steps.</p>
         </div>
 
-        <div class="space-y-4">
-            <input id="taskInput" type="text" placeholder="What's a task you're avoiding?" 
-                   class="w-full p-6 bg-white border-2 border-slate-100 rounded-[1.5rem] focus:border-indigo-500 outline-none transition-all text-slate-800 font-semibold shadow-sm text-lg">
+        <div class="glass p-8 rounded-[2.5rem] shadow-2xl shadow-slate-200 mb-8">
+            <div class="mb-6">
+                <label class="block text-sm font-bold text-slate-700 mb-3 ml-1 uppercase tracking-wider">What are you avoiding?</label>
+                <input type="text" id="taskInput" placeholder="e.g. Write my project intro..." 
+                       class="w-full p-5 bg-slate-50 border-2 border-slate-100 rounded-2xl focus:border-indigo-500 focus:bg-white outline-none transition-all text-lg font-medium">
+            </div>
             
-            <button onclick="sliceItNow()" id="btn"
-                    class="w-full bg-slate-900 hover:bg-black text-white font-extrabold py-6 rounded-[1.5rem] transition-all active:scale-[0.98] flex items-center justify-center gap-4 text-xl shadow-xl">
-                <span>Slice It Now</span>
-                <div id="loadingCircle" class="hidden loader"></div>
+            <button onclick="sliceTask()" class="w-full btn-grad text-white font-extrabold py-5 rounded-2xl shadow-lg flex items-center justify-center gap-3 text-xl">
+                <span>Slice It Now ⚡</span>
             </button>
         </div>
 
-        <div id="resultBox" class="mt-10 space-y-4"></div>
+        <div id="resultBox" class="space-y-4"></div>
 
-        <div class="mt-12 pt-8 border-t border-slate-100 text-center text-sm">
-            <a href="https://payhip.com/FocusHive1" target="_blank" class="text-indigo-600 font-extrabold hover:underline">
-                Get the Ultimate Digital Planner →
+        <div id="promoBox" class="hidden mt-10 p-8 bg-slate-900 rounded-[2.5rem] text-center text-white shadow-2xl animate-slide">
+            <div class="flex justify-center mb-4">
+                <span class="bg-indigo-500 text-[10px] font-black px-3 py-1 rounded-full uppercase">Must Have</span>
+            </div>
+            <h3 class="text-2xl font-bold mb-2 text-white">Master Your ADHD 🎯</h3>
+            <p class="text-slate-400 text-sm mb-6 leading-relaxed">Don't lose this focus. Grab our full Digital Planner to stay organized all month.</p>
+            <a href="https://payhip.com/FocusHive1" target="_blank" class="block w-full bg-indigo-600 text-white font-black py-4 rounded-2xl hover:bg-indigo-500 transition-all text-lg shadow-lg">
+                Get the Planner 📥
             </a>
         </div>
+        
+        <p class="text-center text-slate-400 text-[10px] mt-12">© 2026 FocusHive AI. Made for students, by a student.</p>
     </div>
 
     <script>
-        async function sliceItNow() {
-            const input = document.getElementById('taskInput').value;
-            const btn = document.getElementById('btn');
+        function sliceTask() {
+            const task = document.getElementById('taskInput').value;
             const resultBox = document.getElementById('resultBox');
-            const loader = document.getElementById('loadingCircle');
+            if(!task) return alert("Please enter a task!");
 
-            if (!input.trim()) return;
+            resultBox.innerHTML = '<div class="text-center py-12 text-indigo-600 font-black animate-pulse text-xl">🧠 AI IS SLICING...</div>';
 
-            // كنبداو التحميل
-            btn.disabled = true;
-            loader.classList.remove('hidden');
-            resultBox.innerHTML = "";
+            // الهيكل ديال الـ AI (Fake logic for now, results depend on keywords)
+            let steps = [
+                "Open your laptop and clear your desk.",
+                "Set a timer for exactly 5 minutes.",
+                "Write just the first three words of the task."
+            ];
 
-            try {
-                // هاد الـ API ما كيحتاج لا ساروت لا والو، وخدام ديما بالزربة
-                const prompt = `You are an ADHD productivity coach. Break the task "${input}" into 3 very short, extremely easy, actionable steps. Return ONLY a numbered list (1., 2., 3.). No intro, no outro.`;
-                const encodedPrompt = encodeURIComponent(prompt);
-                
-                const response = await fetch(`https://text.pollinations.ai/${encodedPrompt}`);
-                
-                if (!response.ok) throw new Error("Network response was not ok");
-                
-                const text = await response.text();
-                
-                // تنظيف وعرض النتائج
-                const steps = text.trim().split('\n').filter(s => s.length > 5).slice(0, 3);
-                
-                steps.forEach((step, i) => {
-                    setTimeout(() => {
-                        const div = document.createElement('div');
-                        div.className = "step-entry p-5 bg-indigo-50/50 rounded-2xl border border-indigo-100 text-slate-800 font-bold shadow-sm flex items-center gap-4";
-                        div.innerHTML = `<span class="bg-indigo-600 text-white w-8 h-8 rounded-xl flex items-center justify-center text-sm flex-shrink-0">${i+1}</span> <p>${step.replace(/^\d+[\.\)]\s*/, '')}</p>`;
-                        resultBox.appendChild(div);
-                    }, i * 200);
-                });
-
-            } catch (err) {
-                resultBox.innerHTML = "<p class='text-center text-red-500 font-bold'>Oops! The AI blinked. Try clicking again.</p>";
-            } finally {
-                btn.disabled = false;
-                loader.classList.add('hidden');
+            if(task.toLowerCase().includes('study') || task.toLowerCase().includes('write')) {
+                steps = ["Sit down and open your notes.", "Read only the last line you wrote.", "Write one new bullet point."];
             }
+
+            setTimeout(() => {
+                displaySteps(steps);
+            }, 1200);
+        }
+
+        function displaySteps(steps) {
+            const resultBox = document.getElementById('resultBox');
+            resultBox.innerHTML = "";
+            
+            steps.forEach((step, i) => {
+                setTimeout(() => {
+                    const div = document.createElement('div');
+                    div.className = "animate-slide p-5 bg-white rounded-2xl border border-slate-100 shadow-sm flex items-center gap-5";
+                    div.innerHTML = `
+                        <div class="w-10 h-10 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center font-black text-lg flex-shrink-0">${i+1}</div>
+                        <p class="font-bold text-slate-800 text-[15px]">${step}</p>
+                    `;
+                    resultBox.appendChild(div);
+
+                    if (i === steps.length - 1) {
+                        showControls();
+                    }
+                }, i * 250);
+            });
+        }
+
+        function showControls() {
+            document.getElementById('promoBox').classList.remove('hidden');
+            const tools = document.createElement('div');
+            tools.className = "flex gap-3 mt-6 animate-slide";
+            tools.innerHTML = `
+                <button onclick="copySteps()" class="flex-1 bg-white border-2 border-slate-200 text-slate-600 font-bold py-4 rounded-2xl text-sm hover:bg-slate-50 transition-all">📋 Copy Steps</button>
+                <a href="https://wa.me/?text=This AI tool saved my life! Try it: ${window.location.href}" target="_blank" class="flex-1 bg-[#25D366] text-white font-bold py-4 rounded-2xl text-sm text-center shadow-lg flex items-center justify-center gap-2">
+                    <span>WhatsApp</span>
+                </a>
+            `;
+            document.getElementById('resultBox').appendChild(tools);
+        }
+
+        function copySteps() {
+            const text = document.getElementById('resultBox').innerText;
+            navigator.clipboard.writeText(text);
+            alert("Steps copied! Go crush it! ⚡");
         }
     </script>
 </body>
