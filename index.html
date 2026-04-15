@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADHD Focus Tool - Slice Tasks & Boost Productivity</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        .card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 500px; width: 100%; text-align: center; }
+        h1 { color: #2c3e50; font-size: 22px; }
+        input { width: 90%; padding: 12px; margin: 15px 0; border: 1px solid #ddd; border-radius: 8px; }
+        button { background-color: #3498db; color: white; border: none; padding: 12px 25px; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; }
+        #output { margin-top: 20px; text-align: left; background: #e8f4fd; padding: 15px; border-radius: 8px; display: none; }
+        .product-box { margin-top: 30px; border: 2px solid #3498db; border-radius: 12px; overflow: hidden; background: #fff; }
+        .product-box img { width: 100%; height: auto; }
+        .cta-btn { display: block; background: #e67e22; color: white; text-decoration: none; padding: 15px; font-weight: bold; margin-top: 10px; border-radius: 0 0 10px 10px; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>ADHD Task Slicer ⚡</h1>
+    <p>Break your big tasks into tiny, manageable steps.</p>
+    <input type="text" id="taskInput" placeholder="Enter your big task (e.g. Study for exam)">
+    <button onclick="sliceTask()">Slice It Now!</button>
+
+    <div id="output"></div>
+
+    <div class="product-box">
+        <img src="https://images.tcdn.com.br/img/editor/up/1211181/1000031874.jpg" alt="Digital Planner Pack">
+        <div style="padding: 15px;">
+            <h3>Master Your Routine 📅</h3>
+            <p>Divide tasks is just the start. Use our Ultimate Digital Planner to stay consistent.</p>
+        </div>
+        <a href="https://payhip.com/FocusHive1" class="cta-btn">SHOP THE PLANNER - 50% OFF</a>
+    </div>
+</div>
+
+<script>
+function sliceTask() {
+    let task = document.getElementById('taskInput').value;
+    if(!task) return;
+    let result = document.getElementById('output');
+    result.style.display = 'block';
+    result.innerHTML = "<strong>Steps for " + task + ":</strong><ul><li>Prepare your workspace (2 mins)</li><li>Focus ONLY on the first small part (10 mins)</li><li>Check your <b>FocusHive Planner</b> for next steps</li></ul>";
+}
+</script>
+
+</body>
+</html>
