@@ -7,42 +7,69 @@
     <style>
         body { font-family: 'Segoe UI', sans-serif; background-color: #f4f7f6; color: #333; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
         .card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 450px; width: 100%; text-align: center; }
-        h1 { color: #2c3e50; }
-        input { width: 90%; padding: 12px; margin: 15px 0; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; }
-        button { background-color: #3498db; color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; font-size: 18px; }
-        #output { margin-top: 20px; text-align: left; background: #e8f4fd; padding: 15px; border-radius: 8px; display: none; border-left: 5px solid #3498db; }
-        .product-box { margin-top: 30px; border: 2px solid #3498db; border-radius: 12px; overflow: hidden; background: #fff; }
-        .product-box img { width: 100%; height: auto; display: block; min-height: 200px; background: #eee; }
-        .cta-btn { display: block; background: #e67e22; color: white; text-decoration: none; padding: 15px; font-weight: bold; font-size: 18px; }
+        h1 { color: #2c3e50; margin-bottom: 10px; }
+        p.subtitle { color: #666; margin-bottom: 20px; }
+        input { width: 90%; padding: 12px; margin: 15px 0; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; outline-color: #3498db; }
+        button { background-color: #3498db; color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; font-size: 18px; transition: 0.3s; }
+        button:hover { background-color: #2980b9; }
+        #output { margin-top: 20px; text-align: left; background: #e8f4fd; padding: 15px; border-radius: 8px; display: none; border-left: 5px solid #3498db; animation: fadeIn 0.5s; }
+        .product-box { margin-top: 30px; border: 2px solid #3498db; border-radius: 12px; overflow: hidden; background: #fff; transition: 0.3s; }
+        .product-box:hover { transform: translateY(-5px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+        .product-box img { width: 100%; height: auto; display: block; background: #eee; }
+        .cta-btn { display: block; background: #e67e22; color: white; text-decoration: none; padding: 15px; font-weight: bold; font-size: 18px; transition: 0.3s; }
+        .cta-btn:hover { background: #d35400; }
+        .counter-section { margin-top: 25px; opacity: 0.7; font-size: 12px; border-top: 1px solid #eee; padding-top: 15px; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body>
 
 <div class="card">
     <h1>ADHD Task Slicer ⚡</h1>
-    <p>Break your big tasks into tiny, manageable steps.</p>
+    <p class="subtitle">Break your big tasks into tiny, manageable steps.</p>
+    
     <input type="text" id="taskInput" placeholder="Enter your task (e.g. Study for MPSI)">
     <button onclick="sliceTask()">Slice It Now!</button>
 
     <div id="output"></div>
 
     <div class="product-box">
-        <img src="https://raw.githubusercontent.com/focushive1-cmd/adhd-task-slicer/main/planner-image.jpg" onerror="this.src='https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80&w=500'" alt="Digital Planner Pack">
+        <img src="https://raw.githubusercontent.com/focushive1-cmd/adhd-task-slicer/main/planner-image.jpg" 
+             onerror="this.src='https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80&w=500'" 
+             alt="FocusHive Digital Planner">
         <div style="padding: 15px;">
-            <h3>Master Your Routine 📅</h3>
-            <p>Ready to stay consistent? Get our Ultimate Digital Planner Pack today.</p>
+            <h3 style="margin: 0 0 10px 0;">Master Your Routine 📅</h3>
+            <p style="font-size: 14px; margin: 0;">Ready to stay consistent? Get our Ultimate Digital Planner Pack today and crush your goals.</p>
         </div>
         <a href="https://payhip.com/FocusHive1" class="cta-btn">SHOP THE PLANNER - 50% OFF</a>
+    </div>
+
+    <div class="counter-section">
+        <p>Live Traffic Stats:</p>
+        <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Ffocushive1-cmd.github.io%2Fadhd-task-slicer%2F&count_bg=%233498DB&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Visitors&edge_flat=false" alt="Visitor Counter">
     </div>
 </div>
 
 <script>
 function sliceTask() {
     let task = document.getElementById('taskInput').value;
-    if(!task) return;
+    if(!task) {
+        alert("Please enter a task first!");
+        return;
+    }
     let result = document.getElementById('output');
     result.style.display = 'block';
-    result.innerHTML = "<strong>Steps to crush " + task + ":</strong><ol><li>Set a 5-minute timer.</li><li>Do the smallest piece first.</li><li>Check your FocusHive Planner!</li></ol>";
+    
+    // محاكاة لتقسيم المهام بشكل ذكي
+    result.innerHTML = `
+        <strong>Steps to crush "${task}":</strong>
+        <ol>
+            <li>Start with just 5 minutes of focused work.</li>
+            <li>Break the task into 3 small sub-steps.</li>
+            <li>Reward yourself after completing the first one!</li>
+            <li><strong>Check your FocusHive Planner</strong> to log your progress.</li>
+        </ol>
+    `;
 }
 </script>
 
